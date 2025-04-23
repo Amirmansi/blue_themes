@@ -1,6 +1,6 @@
 ## Blue Theme
 
-Blue theme for erpnext
+Blue Theme For ERPNext
 
 #### License
 
