@@ -1,7 +1,7 @@
 app_name = "blue_theme"
 app_title = "Blue Theme"
 app_publisher = "erpnext.ir"
-app_description = "Blue Theme for ERPNext"
+app_description = "Blue theme for erpnext"
 app_email = "alireza.souhani@gmail.com"
 app_license = "mit"
 

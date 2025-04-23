@@ -3,7 +3,7 @@ name = "blue_theme"
 authors = [
     { name = "erpnext.ir", email = "alireza.souhani@gmail.com"}
 ]
-description = "Blue Theme for ERPNext"
+description = "Blue theme for erpnext"
 requires-python = ">=3.10"
 readme = "README.md"
 dynamic = ["version"]
