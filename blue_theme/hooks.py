@@ -1,7 +1,7 @@
 app_name = "blue_theme"
-app_title = "Blue Theme"
+app_title = "blue_theme"
 app_publisher = "erpnext.ir"
-app_description = "Blue Theme For ERPNext"
+app_description = "Blue Theme for ERPNext"
 app_email = "alireza.souhani@gmail.com"
 app_license = "mit"
 
@@ -15,7 +15,7 @@ app_license = "mit"
 # 	{
 # 		"name": "blue_theme",
 # 		"logo": "/assets/blue_theme/logo.png",
-# 		"title": "Blue Theme",
+# 		"title": "Brilliant Theme",
 # 		"route": "/blue_theme",
 # 		"has_permission": "blue_theme.api.permission.has_app_permission"
 # 	}
@@ -25,12 +25,12 @@ app_license = "mit"
 # ------------------
 
 # include js, css files in header of desk.html
-# app_include_css = "/assets/blue_theme/css/blue_theme.css"
-# app_include_js = "/assets/blue_theme/js/blue_theme.js"
+app_include_css = "/assets/blue_theme/css/blue_theme.css"
+app_include_js = "/assets/blue_theme/js/blue_theme.js"
 
 # include js, css files in header of web template
-# web_include_css = "/assets/blue_theme/css/blue_theme.css"
-# web_include_js = "/assets/blue_theme/js/blue_theme.js"
+web_include_css = "/assets/blue_theme/css/blue_theme.css"
+web_include_js = "/assets/blue_theme/js/blue_theme.js"
 
 # include custom scss in every website theme (without file extension ".scss")
 # website_theme_scss = "blue_theme/public/scss/website"
