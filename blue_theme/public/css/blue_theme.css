@@ -1,711 +1,161 @@
-/* ==================== 🎨 COLOR THEME VARIABLES ==================== */
+/* ==================== 🎨 JUSTDO THEME EXTENSIONS FOR FORMS & NAV ==================== */
 :root {
-    --primary-color: #A0A0A0;       /* Dark Black */
-    --background-color: #F2F2F2;    /* Very Light Gray */
-    --secondary-color: #A0A0A0;     /* Medium Gray */
-    --accent-color: #3A9BDC;        /* Soft Sky Blue */
-    --text-color: #3C3C3C;          /* Medium Black */
-    --success-color: #4CAF50;       /* Green */
-    --danger-color: #E74C3C;        /* Red */
-    --border-radius: 10px;
-    --box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+    --primary-color: #248AFD;        /* Dodger Blue */
+    --primary-orange: #F5A623;       /* Orange */
+    --primary-red: #FF4747;          /* Red */
+    --primary-green: #71C02B;        /* Green */
+    --primary-yellow: #FFC100;       /* Yellow */
+    --text-color: #1a1a1a;           /* Dark text */
+    --muted-text: #5a5a5a;           /* Secondary text */
+    --control-bg: #ffffff;           /* White input background */
+    --border-radius: 8px;
+    --scrollbar-thumb-color: rgba(36,138,253,0.5);
+    --scrollbar-track-color: #f0f0f0;
+    --input-height: 40px;
+    --input-padding: 0.5rem 0.75rem;
+    --weight-regular: 400;
+    --weight-medium: 500;
+    --weight-semibold: 600;
+    --weight-bold: 700;
+    --box-shadow-light: 0px 2px 6px rgba(0,0,0,0.05);
 }
 
-/* ==================== 🖋 GLOBAL STYLE ==================== */
-body {
-    background-color: var(--background-color) !important;
+/* ==================== 📝 FORM CONTROLS ==================== */
+.form-control.bold {
+    font-weight: var(--weight-medium);
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    height: var(--input-height);
+    padding: var(--input-padding);
+    font-size: 0.875rem;
+    font-weight: var(--weight-regular);
+    line-height: 1.5;
     color: var(--text-color);
-    font-family: 'Segoe UI', sans-serif;
-}
-
-/* ==================== 📌 NAVBAR ==================== */
-.navbar {
-    background-color: #a09e9e;
-    border-bottom: 3px solid var(--accent-color);
-    height: 70px;
-    box-shadow: var(--box-shadow);
-    display: flex;
-    align-items: center;
-}
-.navbar-home img {
-    max-height: 50px !important;
-    border-radius: 50%;
-    border: 2px solid var(--background-color);
-}
-#navbar-breadcrumbs a {
-    color: var(--background-color);
-    font-weight: bold;
-    transition: color 0.3s;
-}
-#navbar-breadcrumbs a:hover {
-    color: var(--accent-color);
-}
-
-/* ==================== 📂 SIDEBAR ==================== */
-.desk-sidebar-item {
-    background-color: white;
-    border: 1px solid var(--secondary-color);
+    background-color: var(--control-bg);
+    border: 1px solid #c7c7c7;
     border-radius: var(--border-radius);
-    margin: 5px 0;
-    padding: 6px;
-    box-shadow: var(--box-shadow);
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    transition: all 0.3s ease;
+    box-shadow: var(--box-shadow-light);
 }
-.standard-sidebar-item {
+
+/* Focused Input with Glow */
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 6px rgba(36,138,253,0.4);
+    outline: none;
+}
+
+/* Disabled State */
+.form-control:disabled {
+    background-color: #f5f5f5;
+    color: var(--muted-text);
+    cursor: not-allowed;
+}
+
+/* Strong & Bold Variants */
+.bold {
+    font-weight: var(--weight-semibold) !important;
+}
+.bold, .strong {
+    font-weight: var(--weight-bold);
+}
+
+/* ==================== 📑 FORM TABS ==================== */
+.form-tabs-list .form-tabs {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    align-items: center;
+    gap: 6px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-thumb-color) var(--scrollbar-track-color);
+}
+
+/* Tab Styling */
+.form-tabs .nav-link {
+    padding: 8px 14px;
+    border-radius: var(--border-radius);
     color: var(--text-color);
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-.standard-sidebar-item:hover {
-    background-color: var(--accent-color);
-    color: white;
-    transform: translateX(4px);
+    background: #f7f7f7;
+    border: 1px solid transparent;
     transition: 0.3s ease;
+    font-weight: var(--weight-medium);
 }
-.standard-sidebar-item.selected {
-    background-color: var(--accent-color);
+.form-tabs .nav-link:hover {
+    background-color: var(--primary-color);
     color: white;
 }
-
-/* 🎨 Section colors */
-.sidebar-section-basics {
-    border-left: 4px solid var(--accent-color);
-}
-.sidebar-section-links {
-    border-left: 4px solid var(--success-color);
-}
-.sidebar-section-reports {
-    border-left: 4px solid var(--danger-color);
-}
-
-/* ==================== 🔘 BUTTONS ==================== */
-.btn, .btn-primary {
-    background-color: var(--accent-color) !important;
-    color: white !important;
-    border-radius: var(--border-radius);
-    border: none;
-    padding: 8px 15px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: 0.3s;
-}
-.btn:hover {
-    background-color: var(--primary-color) !important;
-    transform: scale(1.05);
-}
-.btn i {
-    transition: transform 0.3s ease;
-}
-.btn:hover i {
-    transform: rotate(10deg) scale(1.1);
-}
-
-/* ==================== 🏛 ICONS (Law Theme) ==================== */
-.icon-law {
-    width: 20px;
-    height: 20px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    transition: transform 0.3s ease;
-}
-.icon-law:hover {
-    transform: rotate(10deg) scale(1.1);
-}
-.icon-balance {
-    background-image: url('https://cdn-icons-png.flaticon.com/512/1041/1041883.png');
-}
-.icon-document {
-    background-image: url('https://cdn-icons-png.flaticon.com/512/942/942748.png');
-}
-.icon-judge {
-    background-image: url('https://cdn-icons-png.flaticon.com/512/3050/3050525.png');
-}
-
-/* ==================== 🃏 CARDS ==================== */
-.card {
-    background-color: white;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    padding: 15px;
-    transition: all 0.3s ease;
-}
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0px 6px 15px rgba(0,0,0,0.15);
-}
-
-/* ==================== 📝 HEADINGS ==================== */
-h1, h2, h3 {
-    text-align: center;
-    color: var(--accent-color);
-    font-weight: bold;
-}
-
-/* ==================== 📑 FORMS ==================== */
-input, select, textarea {
-    border: 1px solid var(--secondary-color) !important;
-    border-radius: var(--border-radius);
-    padding: 8px;
-    background-color: white !important;
-    transition: all 0.3s ease;
-}
-input:focus, select:focus, textarea:focus {
-    border-color: var(--accent-color) !important;
-    box-shadow: 0 0 6px var(--accent-color);
-}
-
-/* ==================== ⚡ INTERACTIONS ==================== */
-.fade-in {
-    animation: fadeIn 0.6s ease-in-out;
-}
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-.glow-hover:hover {
-    box-shadow: 0 0 10px var(--accent-color);
-}
-/* ==================== WIDGETS ==================== */
-.widget {
-    background-color: transparent !important;
-}
-.quick-list-widget-box,
-.widget.shortcut-widget-box,
-.widget.links-widget-box .link-item .link-content {
-    border: 1px solid var(--accent-color);
-    border-radius: var(--border-radius) !important;
-    background-color: white !important;
-    box-shadow: var(--box-shadow);
-    padding: 10px;
-}
-.quick-list-widget-box > .widget-head {
-    border-bottom: 2px solid var(--accent-color);
-    background-color: var(--background-color);
-    border-radius: var(--border-radius) var(--border-radius) 0 0 !important;
-}
-
-/* ==================== GRID ==================== */
-.grid-body .data-row {
-    font-size: 11px;
-    align-items: center;
-    height: 40px;
-}
-.copy_btn {
-    float: left;
-    height: 25px;
-    font-size: 11px;
-}
-
-/* ==================== FORM ELEMENTS ==================== */
-.form-tab-content,
-.form-tabs-list .form-tabs .nav-item {
-    border: 1px solid var(--secondary-color);
-}
-.form-tabs-list .form-tabs .nav-item .nav-link.active {
-    border-bottom: 3px solid var(--accent-color);
-    color: var(--accent-color);
-    font-weight: bold !important;
-}
-input, select, textarea {
-    border: 1px solid var(--secondary-color) !important;
-    border-radius: var(--border-radius) !important;
-    padding: 6px !important;
-    background-color: white !important;
-}
-input:focus, select:focus, textarea:focus {
-    outline: none !important;
-    border-color: var(--accent-color) !important;
-    box-shadow: 0 0 5px var(--accent-color);
-}
-
-/* ==================== BUTTONS ==================== */
-.btn, .btn-primary {
-    background-color: var(--accent-color) !important;
-    color: white !important;
-    border-radius: var(--border-radius);
-    border: 1px solid var(--accent-color);
-    transition: 0.3s;
-}
-.btn:hover {
-    background-color: var(--primary-color) !important;
+.form-tabs .nav-link.active {
+    background-color: var(--primary-color);
+    color: white;
     border-color: var(--primary-color);
 }
 
-/* ==================== POS CATEGORY BUTTONS ==================== */
-.pos-category-btn {
-    background-color: var(--accent-color) !important;
-    border-radius: var(--border-radius) !important;
-    padding: 12px !important;
-    font-weight: bold;
-    border: 2px solid var(--primary-color) !important;
-    box-shadow: var(--box-shadow);
-    color: white;
-    transition: 0.3s;
-}
-.pos-category-btn:hover {
-    background-color: var(--primary-color) !important;
-    color: white !important;
-}
-
-/* ==================== RESTAURANT TABLE STATUS ==================== */
-.restaurant-table {
-    border-radius: var(--border-radius);
-    padding: 15px;
-    font-weight: bold;
-    box-shadow: var(--box-shadow);
-}
-.restaurant-table.occupied {
-    background-color: #FFF2E6;
-    border: 2px solid var(--accent-color);
-}
-.restaurant-table.available {
-    background-color: #EAF7EA;
-    border: 2px solid var(--success-color);
-}
-.restaurant-table.reserved {
-    background-color: #FDECEA;
-    border: 2px solid var(--danger-color);
-}
-
-/* ==================== ORDER LIST ==================== */
-.pos-order-list {
-    background-color: white;
-    border-radius: var(--border-radius);
-    border: 2px solid var(--accent-color);
-    box-shadow: var(--box-shadow);
-}
-.pos-order-item {
-    border-bottom: 1px dashed var(--secondary-color);
-    padding: 8px;
-}
-
-/* ==================== COFFEE SPECIAL ==================== */
-.coffee-special {
-    border: 2px dashed var(--accent-color);
-    padding: 10px;
-    border-radius: var(--border-radius);
-    background-color: #E6F8FB;
-    font-style: italic;
-    font-weight: bold;
-    margin: 10px 0;
-}
-/* Main search bar container - rectangular */
-.search-bar .awesomplete {
-    position: relative;
-    width: 100%;
-    max-width: 500px; /* width of the box */
-    margin: 20px auto;
-    font-family: 'Segoe UI', Tahoma, sans-serif;
-    background: #ffffff;
-    border: 2px solid #ccc;
-    border-radius: 6px; /* small radius = مستطيل */
-    padding: 10px 15px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* On hover */
-.search-bar .awesomplete:hover {
-    border-color: #2563eb;
-    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
-}
-
-/* Input text */
-.search-bar .awesomplete input {
-    width: 100%;
-    border: none;
-    outline: none;
-    background: transparent;
-    font-size: 16px;
-    color: #111827;
-}
-
-/* Placeholder */
-.search-bar .awesomplete input::placeholder {
-    color: #9ca3af;
-}
-
-/* Dropdown list */
-.search-bar .awesomplete ul {
-    position: absolute;
-    top: 105%;
-    left: 0;
-    right: 0;
-    background: #fff;
-    border: 1px solid #e5e7eb;
-    border-radius: 6px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    max-height: 220px;
-    overflow-y: auto;
-    z-index: 999;
-    padding: 0;
-    margin: 0;
-}
-
-/* Suggestion items */
-.search-bar .awesomplete li {
-    padding: 10px 15px;
+/* ==================== 📂 NAVIGATION ==================== */
+.nav {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
     list-style: none;
-    cursor: pointer;
-    transition: background 0.2s;
+    gap: 4px;
 }
 
-/* Hover effect */
-.search-bar .awesomplete li:hover {
-    background: #2563eb;
-    color: #fff;
-}
-
-/* Highlight matched text */
-.search-bar .awesomplete li mark {
-    background: transparent;
-    color: #f59e0b;
-    font-weight: bold;
-}
-
-/* Scrollbar */
-.search-bar .awesomplete ul::-webkit-scrollbar {
-    width: 6px;
-}
-.search-bar .awesomplete ul::-webkit-scrollbar-thumb {
-    background: #d1d5db;
-    border-radius: 3px;
-}
-.search-bar .awesomplete ul::-webkit-scrollbar-thumb:hover {
-    background: #9ca3af;
-}
-/* Basic button style */
-.btn {
-    display: inline-block;
-    padding: 10px 18px;
-    font-size: 15px;
-    font-weight: 500;
-    font-family: 'Segoe UI', Tahoma, sans-serif;
-    border-radius: 6px;
-    border: none;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    transition: all 0.25s ease;
-}
-
-/* Primary button (Blue) */
-.btn-primary {
-    background: #2563eb;
-    color: white;
-}
-.btn-primary:hover {
-    background: #1e40af;
-    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
-}
-
-/* Secondary button (Gray) */
-.btn-secondary {
-    background: #6b7280;
-    color: white;
-}
-.btn-secondary:hover {
-    background: #4b5563;
-    box-shadow: 0 4px 12px rgba(107, 114, 128, 0.3);
-}
-
-/* Success button (Green) */
-.btn-success {
-    background: #16a34a;
-    color: white;
-}
-.btn-success:hover {
-    background: #15803d;
-    box-shadow: 0 4px 12px rgba(22, 163, 74, 0.3);
-}
-
-/* Danger button (Red) */
-.btn-danger {
-    background: #dc2626;
-    color: white;
-}
-.btn-danger:hover {
-    background: #991b1b;
-    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
-}
-
-/* Outline style buttons */
-.btn-outline {
-    background: transparent;
-    border: 2px solid currentColor;
-}
-.btn-outline:hover {
-    background: rgba(0, 0, 0, 0.05);
-}
-
-/* Icon button */
-.btn-icon {
-    padding: 8px 10px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-.btn-icon i {
-    font-size: 16px;
-}
-
-/* Glow effect */
-.btn-glow {
-    position: relative;
-    z-index: 1;
-}
-.btn-glow::after {
-    content: '';
-    position: absolute;
-    left: -2px;
-    right: -2px;
-    top: -2px;
-    bottom: -2px;
-    background: linear-gradient(45deg, #2563eb, #f59e0b, #16a34a, #dc2626);
-    background-size: 300% 300%;
-    border-radius: inherit;
-    z-index: -1;
-    filter: blur(8px);
-    opacity: 0;
-    transition: opacity 0.3s ease, background-position 1s linear;
-}
-.btn-glow:hover::after {
-    opacity: 1;
-    background-position: 100% 0;
-}
-/* ==================== 📋 LIST ROW HEAD ==================== */
-.list-row-head {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: var(--primary-color);
-    color: white;
-    font-weight: bold;
-    padding: 12px 16px;
+/* Nav Item Links */
+.nav li a {
+    padding: 6px 12px;
     border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    margin-bottom: 8px;
-    position: relative;
-    overflow: hidden;
-    animation: fadeIn 0.4s ease-in-out;
-}
-
-/* ====== ⚖ خلفية زخرفية لموضوع المحاماة ====== */
-.list-row-head::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -50px;
-    width: 150px;
-    height: 100%;
-    background-image: url('https://cdn-icons-png.flaticon.com/512/1041/1041883.png');
-    background-repeat: no-repeat;
-    background-size: 50px 50px;
-    background-position: left center;
-    opacity: 0.05;
-    transform: rotate(-10deg);
-}
-
-/* ====== 🔤 النصوص ====== */
-.list-row-head span {
-    color: white;
-    font-size: 14px;
-    letter-spacing: 0.5px;
-}
-
-/* ====== 🎯 أيقونات عناوين الأعمدة ====== */
-.list-row-head span::before {
-    margin-right: 6px;
-}
-.list-row-head span:nth-child(1)::before {
-    content: "⚖"; /* ميزان العدل */
-}
-.list-row-head span:nth-child(2)::before {
-    content: "📄"; /* مستند */
-}
-.list-row-head span:nth-child(3)::before {
-    content: "👨‍⚖"; /* قاضٍ */
-}
-
-/* ==================== 📝 LIST ROW ITEMS ==================== */
-.list-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: white;
     color: var(--text-color);
-    padding: 10px 14px;
-    border-bottom: 1px solid var(--secondary-color);
     transition: all 0.3s ease;
 }
-.list-row:hover {
-    background-color: var(--accent-color);
-    color: white;
-    transform: translateX(4px);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
-/* ====== تأثير Glow ====== */
-.list-row:hover span {
-    text-shadow: 0 0 4px white;
-}
-
-/* ====== حركة دخول ====== */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-5px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-/* ==================== 🔘 BUTTONS THEME ==================== */
-.btn {
-    display: inline-flex;
-    gap: 8px;
-    padding: 10px 18px;
-    font-size: 14px;
-    font-weight: bold;
-    border-radius: var(--border-radius);
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    box-shadow: var(--box-shadow);
-}
-
-/* ====== Primary Button ====== */
-.btn-primary {
+.nav li a:hover {
     background-color: var(--primary-color);
     color: white;
 }
-.btn-primary:hover {
-    background-color: #1f1f1f;
-    transform: translateY(-2px);
-    box-shadow: 0 0 10px var(--accent-color);
+
+/* ==================== 📜 SCROLLBAR STYLE ==================== */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-thumb-color) var(--scrollbar-track-color);
+}
+*::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+*::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-thumb-color);
+    border-radius: 10px;
+}
+*::-webkit-scrollbar-track {
+    background-color: var(--scrollbar-track-color);
 }
 
-/* ====== Secondary Button ====== */
-.btn-secondary {
-    background-color: var(--secondary-color);
-    color: white;
+/* ==================== 💡 EXTRA IDEAS ==================== */
+/* Floating Labels */
+.form-control.floating-label {
+    padding-top: 1.25rem;
 }
-.btn-secondary:hover {
-    background-color: #8a8a8a;
-    transform: translateY(-2px);
-    box-shadow: 0 0 8px var(--accent-color);
-}
-
-/* ====== Accent Button ====== */
-.btn-accent {
-    background-color: var(--accent-color);
-    color: white;
-}
-.btn-accent:hover {
-    background-color: #2f89c0;
-    transform: scale(1.05);
-    box-shadow: 0 0 10px var(--accent-color);
+.form-control.floating-label:focus + label,
+.form-control.floating-label:not(:placeholder-shown) + label {
+    transform: translateY(-0.75rem);
+    font-size: 0.75rem;
+    color: var(--primary-color);
 }
 
-/* ====== Success Button ====== */
-.btn-success {
-    background-color: var(--success-color);
-    color: white;
-}
-.btn-success:hover {
-    background-color: #3d8b40;
-    transform: scale(1.05);
-    box-shadow: 0 0 10px var(--success-color);
-}
-
-/* ====== Danger Button ====== */
-.btn-danger {
-    background-color: var(--danger-color);
-    color: white;
-}
-.btn-danger:hover {
-    background-color: #c0392b;
-    transform: scale(1.05);
-    box-shadow: 0 0 10px var(--danger-color);
-}
-
-/* ==================== ⚖ BUTTON ICONS ==================== */
-.btn::before {
-    display: inline-block;
-    width: 18px;
-    height: 18px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    transition: transform 0.3s ease;
-}
-
-.btn-primary::before {
-    content: '';
-    background-image: url('https://cdn-icons-png.flaticon.com/52/1041/1041883.png'); /* ميزان العدل */
-}
-.btn-secondary::before {
-    content: '';
-    background-image: url('https://cdn-icons-png.flaticon.com/512/992/992651.png'); /* قاضٍ */
-}
-.btn-accent::before {
-    content: '';
-    background-image: url('https://cdn-icons-png.flaticon.com/512/2991/2991105.png'); /* مستند */
-}
-.btn-success::before {
-    content: '✔';
-    font-size: 14px;
-    color: white;
-}
-.btn-danger::before {
-    content: '✖';
-    font-size: 14px;
-    color: white;
-}
-
-/* ====== Hover Icon Animation ====== */
-.btn:hover::before {
-    transform: rotate(8deg) scale(1.1);
-}
-
-
-/* ==================== 📦 Widget Head ==================== */
-.widget .widget-head {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 5px 50px;
-    border-top-left-radius: var(--border-radius);
-    border-top-right-radius: var(--border-radius);
-    display: flex;
-    justify-content: space-between;
-    box-shadow: var(--box-shadow);
+/* Input Icon Wrapper */
+.input-with-icon {
     position: relative;
-    animation: fadeIn 0.4s ease-in-out;
 }
-
-/* أيقونة محاماة في بداية الويجت */
-.widget .widget-head::before {
-    content: "⚖";
-    font-size: 18px;
-    color: var(--accent-color);
-    margin-right: 8px;
-    transition: transform 0.3s ease;
+.input-with-icon .icon {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+    color: var(--muted-text);
 }
-
-/* حركة الأيقونة عند المرور */
-.widget .widget-head:hover::before {
-    transform: rotate(10deg) scale(1.2);
-}
-
-/* تأثير عند المرور على الهيدر */
-.widget .widget-head:hover {
-    background-color: var(--accent-color);
-    color: white;
-    box-shadow: 0 0 12px var(--accent-color);
-}
-
-/* حركة ظهور */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-5px); }
-    to { opacity: 1; transform: translateY(0); }
+.input-with-icon input {
+    padding-left: 36px;
 }
