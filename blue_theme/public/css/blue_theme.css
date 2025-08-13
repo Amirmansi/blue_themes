@@ -1,161 +1,345 @@
-/* ==================== 🎨 JUSTDO THEME EXTENSIONS FOR FORMS & NAV ==================== */
+/* ==================== 🎨 JUSTDO COLOR THEME VARIABLES ==================== */
 :root {
     --primary-color: #248AFD;        /* Dodger Blue */
-    --primary-orange: #F5A623;       /* Orange */
+    --primary-orange: #F5A623;       /* Orange Accent */
     --primary-red: #FF4747;          /* Red */
     --primary-green: #71C02B;        /* Green */
     --primary-yellow: #FFC100;       /* Yellow */
-    --text-color: #1a1a1a;           /* Dark text */
-    --muted-text: #5a5a5a;           /* Secondary text */
-    --control-bg: #ffffff;           /* White input background */
-    --border-radius: 8px;
-    --scrollbar-thumb-color: rgba(36,138,253,0.5);
-    --scrollbar-track-color: #f0f0f0;
-    --input-height: 40px;
-    --input-padding: 0.5rem 0.75rem;
-    --weight-regular: 400;
-    --weight-medium: 500;
-    --weight-semibold: 600;
-    --weight-bold: 700;
-    --box-shadow-light: 0px 2px 6px rgba(0,0,0,0.05);
+    --background-color: #ffffff;     /* White */
+    --secondary-bg: #f8f9fa;         /* Light Gray */
+    --secondary-color: #d1d5db;      /* Light Border Gray */
+    --text-color: #1a1a1a;           /* Dark Text */
+    --muted-text: #5a5a5a;           /* Secondary Text */
+    --border-radius: 10px;
+    --box-shadow: 0px 4px 10px rgba(0,0,0,0.05);
+    --transition-speed: 0.3s;
 }
 
-/* ==================== 📝 FORM CONTROLS ==================== */
-.form-control.bold {
-    font-weight: var(--weight-medium);
-}
-
-.form-control {
-    display: block;
-    width: 100%;
-    height: var(--input-height);
-    padding: var(--input-padding);
-    font-size: 0.875rem;
-    font-weight: var(--weight-regular);
-    line-height: 1.5;
+/* ==================== 🖋 GLOBAL ==================== */
+body {
+    background-color: var(--secondary-bg) !important;
     color: var(--text-color);
-    background-color: var(--control-bg);
-    border: 1px solid #c7c7c7;
-    border-radius: var(--border-radius);
-    transition: all 0.3s ease;
-    box-shadow: var(--box-shadow-light);
+    font-family: 'Segoe UI', sans-serif;
+    line-height: 1.6;
 }
 
-/* Focused Input with Glow */
-.form-control:focus {
-    border-color: var(--primary-color);
-    box-shadow: 0 0 6px rgba(36,138,253,0.4);
-    outline: none;
-}
-
-/* Disabled State */
-.form-control:disabled {
-    background-color: #f5f5f5;
-    color: var(--muted-text);
-    cursor: not-allowed;
-}
-
-/* Strong & Bold Variants */
-.bold {
-    font-weight: var(--weight-semibold) !important;
-}
-.bold, .strong {
-    font-weight: var(--weight-bold);
-}
-
-/* ==================== 📑 FORM TABS ==================== */
-.form-tabs-list .form-tabs {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    align-items: center;
-    gap: 6px;
-    scrollbar-width: thin;
-    scrollbar-color: var(--scrollbar-thumb-color) var(--scrollbar-track-color);
-}
-
-/* Tab Styling */
-.form-tabs .nav-link {
-    padding: 8px 14px;
-    border-radius: var(--border-radius);
-    color: var(--text-color);
-    background: #f7f7f7;
-    border: 1px solid transparent;
-    transition: 0.3s ease;
-    font-weight: var(--weight-medium);
-}
-.form-tabs .nav-link:hover {
-    background-color: var(--primary-color);
-    color: white;
-}
-.form-tabs .nav-link.active {
-    background-color: var(--primary-color);
-    color: white;
-    border-color: var(--primary-color);
-}
-
-/* ==================== 📂 NAVIGATION ==================== */
-.nav {
-    display: flex;
-    flex-wrap: wrap;
-    padding-left: 0;
-    margin-bottom: 0;
-    list-style: none;
-    gap: 4px;
-}
-
-/* Nav Item Links */
-.nav li a {
-    padding: 6px 12px;
-    border-radius: var(--border-radius);
-    color: var(--text-color);
-    transition: all 0.3s ease;
-}
-.nav li a:hover {
-    background-color: var(--primary-color);
-    color: white;
-}
-
-/* ==================== 📜 SCROLLBAR STYLE ==================== */
+/* Smooth transitions for all elements */
 * {
-    scrollbar-width: thin;
-    scrollbar-color: var(--scrollbar-thumb-color) var(--scrollbar-track-color);
+    transition: background-color var(--transition-speed), color var(--transition-speed), border-color var(--transition-speed), box-shadow var(--transition-speed), transform var(--transition-speed);
 }
-*::-webkit-scrollbar {
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
     width: 8px;
-    height: 8px;
 }
-*::-webkit-scrollbar-thumb {
-    background-color: var(--scrollbar-thumb-color);
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
     border-radius: 10px;
 }
-*::-webkit-scrollbar-track {
-    background-color: var(--scrollbar-track-color);
+::-webkit-scrollbar-track {
+    background: var(--secondary-bg);
 }
 
-/* ==================== 💡 EXTRA IDEAS ==================== */
-/* Floating Labels */
-.form-control.floating-label {
-    padding-top: 1.25rem;
+/* ==================== 📌 NAVBAR ==================== */
+.navbar {
+    background-color: var(--background-color);
+    border-bottom: 1px solid var(--secondary-color);
+    height: 55px;
+    box-shadow: var(--box-shadow);
 }
-.form-control.floating-label:focus + label,
-.form-control.floating-label:not(:placeholder-shown) + label {
-    transform: translateY(-0.75rem);
-    font-size: 0.75rem;
+.navbar-home img {
+    max-height: 50px !important;
+    border-radius: 50%;
+    border: 2px solid var(--secondary-color);
+}
+#navbar-breadcrumbs a {
+    color: var(--text-color);
+    font-weight: bold;
+}
+#navbar-breadcrumbs a:hover {
     color: var(--primary-color);
 }
 
-/* Input Icon Wrapper */
-.input-with-icon {
-    position: relative;
+/* ==================== 📂 SIDEBAR ==================== */
+.desk-sidebar-item {
+    background-color: var(--background-color);
+    border: 1px solid var(--secondary-color);
+    border-radius: var(--border-radius);
+    margin: 5px 0;
+    padding: 6px;
+    box-shadow: var(--box-shadow);
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
-.input-with-icon .icon {
-    position: absolute;
-    top: 50%;
-    left: 12px;
-    transform: translateY(-50%);
+.standard-sidebar-item {
+    color: var(--text-color);
+    font-weight: 500;
+}
+.standard-sidebar-item:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+.standard-sidebar-item.selected {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* ==================== 🔘 BUTTONS ==================== */
+.btn, .btn-primary {
+    background-color: var(--primary-color) !important;
+    color: white !important;
+    border-radius: var(--border-radius);
+    padding: 8px 15px;
+    box-shadow: var(--box-shadow);
+}
+.btn:hover {
+    background-color: #1b6fd1 !important;
+    transform: translateY(-1px);
+}
+
+/* Accent Button Variants */
+.btn-orange { background-color: var(--primary-orange) !important; color: white !important; }
+.btn-red { background-color: var(--primary-red) !important; color: white !important; }
+.btn-green { background-color: var(--primary-green) !important; color: white !important; }
+.btn-yellow { background-color: var(--primary-yellow) !important; color: white !important; }
+
+/* ==================== 🃏 CARDS ==================== */
+.card {
+    background-color: var(--background-color);
+    border: 1px solid var(--secondary-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    padding: 15px;
+}
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 6px 15px rgba(0,0,0,0.1);
+}
+
+/* ==================== 📝 HEADINGS ==================== */
+h1, h2, h3 {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+/* ==================== 📑 FORMS ==================== */
+input, select, textarea {
+    border: 1px solid var(--secondary-color) !important;
+    border-radius: var(--border-radius);
+    padding: 8px;
+    background-color: var(--background-color) !important;
+}
+input:focus, select:focus, textarea:focus {
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 0 6px rgba(36,138,253,0.3);
+    outline: none;
+}
+
+/* ==================== 📋 LIST ROWS ==================== */
+.list-row {
+    background-color: var(--background-color);
+    border-bottom: 1px solid var(--secondary-color);
+    padding: 10px 14px;
+}
+.list-row:nth-child(even) {
+    background-color: var(--secondary-bg);
+}
+.list-row:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateX(3px);
+}
+
+/* ==================== 🏷 WIDGETS ==================== */
+.widget {
+    background-color: var(--background-color) !important;
+    border: 1px solid var(--secondary-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+.widget .widget-head {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px;
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+/* ==================== 📊 STATUS COLORS ==================== */
+.status-success { color: var(--primary-green); }
+.status-danger { color: var(--primary-red); }
+.status-warning { color: var(--primary-yellow); }
+.status-info { color: var(--primary-color); }
+
+/* ==================== 💡 EXTRA EYE-FRIENDLY TOUCHES ==================== */
+/* Glassmorphism style for modals */
+.modal-content {
+    background: rgba(255, 255, 255, 0.9) !important;
+    backdrop-filter: blur(10px);
+    border-radius: var(--border-radius);
+}
+
+/* Table styling */
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+table th {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px;
+}
+table td {
+    padding: 8px;
+    border: 1px solid var(--secondary-color);
+}
+/* ==================== 🔍 PREMIUM BIG SEARCH BAR ==================== */
+.search-bar .awesomplete input {
+    width: 100%;
+    padding: 16px 20px 16px 50px; /* Bigger padding, space for icon */
+    border: 2px solid var(--secondary-color);
+    border-radius: 40px;
+    background: rgba(255, 255, 255, 0.95); /* Glass effect */
+    backdrop-filter: blur(10px);
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-color);
+    box-shadow: 0px 8px 20px rgba(0,0,0,0.05);
+    transition: all 0.35s ease;
+    background-image: url("data:image/svg+xml,%3Csvg fill='%235a5a5a' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M21.71 20.29l-3.4-3.39A9 9 0 1019 17a9 9 0 00-7-16 9 9 0 000 18 9 9 0 006.9-3.29l3.4 3.39a1 1 0 001.41-1.41zM4 10a6 6 0 1110.95 3.54A6 6 0 014 10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: 18px center;
+    background-size: 20px;
+}
+
+.search-bar .awesomplete input:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0px 10px 25px rgba(36,138,253,0.15);
+}
+
+.search-bar .awesomplete input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0px 12px 30px rgba(36,138,253,0.25);
+    outline: none;
+    transform: scale(1.02);
+}
+
+.search-bar .awesomplete input::placeholder {
     color: var(--muted-text);
+    opacity: 0.8;
+    font-size: 15px;
 }
-.input-with-icon input {
-    padding-left: 36px;
+
+.awesomplete ul {
+    background: var(--background-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    margin-top: 8px;
+    padding: 6px 0;
+    max-height: 250px;
+    overflow-y: auto;
+}
+.awesomplete li {
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background var(--transition-speed);
+}
+.awesomplete li:hover {
+    background: var(--primary-color);
+    color: white;
+}
+/* ==================== 🎨 BUTTON DESIGN SYSTEM ==================== */
+.btn {
+    display: inline-block;
+    padding: 10px 18px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: var(--border-radius);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: var(--box-shadow);
+}
+
+/* Primary Button */
+.btn-primary {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+.btn-primary:hover {
+    background-color: #1b6fd1;
+    transform: translateY(-2px);
+    box-shadow: 0px 8px 20px rgba(36,138,253,0.3);
+}
+
+/* Success Button */
+.btn-success {
+    background-color: var(--primary-green);
+    color: #fff;
+}
+.btn-success:hover {
+    background-color: #5aa122;
+    transform: translateY(-2px);
+    box-shadow: 0px 8px 20px rgba(113,192,43,0.3);
+}
+
+/* Danger Button */
+.btn-danger {
+    background-color: var(--primary-red);
+    color: #fff;
+}
+.btn-danger:hover {
+    background-color: #d13b3b;
+    transform: translateY(-2px);
+    box-shadow: 0px 8px 20px rgba(255,71,71,0.3);
+}
+
+/* Warning Button */
+.btn-warning {
+    background-color: var(--primary-yellow);
+    color: #000;
+}
+.btn-warning:hover {
+    background-color: #e6ae00;
+    transform: translateY(-2px);
+    box-shadow: 0px 8px 20px rgba(255,193,0,0.3);
+}
+
+/* Orange Accent */
+.btn-orange {
+    background-color: var(--primary-orange);
+    color: #fff;
+}
+.btn-orange:hover {
+    background-color: #d68b1e;
+    transform: translateY(-2px);
+    box-shadow: 0px 8px 20px rgba(245,166,35,0.3);
+}
+
+/* Outline Buttons */
+.btn-outline {
+    background: transparent;
+    border: 2px solid currentColor;
+    color: var(--text-color);
+}
+.btn-outline:hover {
+    background-color: currentColor;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* Pill Buttons */
+.btn-pill {
+    border-radius: 50px;
+}
+
+/* Gradient Buttons */
+.btn-gradient {
+    background: linear-gradient(135deg, var(--primary-color), #4aa8ff);
+    color: #fff;
+}
+.btn-gradient:hover {
+    background: linear-gradient(135deg, #1b6fd1, var(--primary-color));
+    transform: translateY(-2px);
+    box-shadow: 0px 8px 20px rgba(36,138,253,0.3);
 }
