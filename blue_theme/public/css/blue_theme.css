@@ -17,7 +17,7 @@
 
 /* ==================== 🖋 GLOBAL ==================== */
 body {
-    background-color: var(--secondary-bg) !important;
+    background-color: #91a5b9 !important;
     color: var(--text-color);
     font-family: 'Segoe UI', sans-serif;
     line-height: 1.6;
@@ -342,4 +342,218 @@ table td {
     background: linear-gradient(135deg, #1b6fd1, var(--primary-color));
     transform: translateY(-2px);
     box-shadow: 0px 8px 20px rgba(36,138,253,0.3);
+}
+/* Sidebar Styling */
+.layout-side-section {
+    background-color: #248afd;
+    color: #ffffff;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.layout-side-section .sidebar-item,
+.layout-side-section .module-sidebar-item {
+    color: #ffffff;
+    font-weight: var(--weight-medium);
+    border-radius: var(--border-radius-md);
+    padding: 10px 14px;
+    margin: 4px 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.layout-side-section .sidebar-item:hover,
+.layout-side-section .module-sidebar-item:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #e2e2e2;
+}
+
+/* Active Item */
+.layout-side-section .sidebar-item.active,
+.layout-side-section .module-sidebar-item.active {
+    background-color: #1f77d0;
+    color: #ffffff;
+    font-weight: var(--weight-semibold);
+}
+
+/* Sidebar Icons */
+.layout-side-section .sidebar-item .icon,
+.layout-side-section .module-sidebar-item .icon {
+    color: #ffffff;
+    margin-right: 8px;
+    opacity: 0.85;
+    transition: opacity 0.3s ease;
+}
+
+.layout-side-section .sidebar-item:hover .icon,
+.layout-side-section .module-sidebar-item:hover .icon {
+    opacity: 1;
+}
+
+/* Navbar Styling */
+.navbar,
+.navbar-default {
+    background-color: #248afd;
+    border-bottom: 1px solid #1f77d0;
+    color: #ffffff;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar .navbar-brand,
+.navbar .nav-link,
+.navbar .navbar-nav > li > a {
+    color: #ffffff !important;
+    font-weight: var(--weight-medium);
+    transition: color 0.3s ease;
+}
+
+.navbar .navbar-brand:hover,
+.navbar .nav-link:hover,
+.navbar .navbar-nav > li > a:hover {
+    color: #e2e2e2 !important;
+}
+
+/* Navbar Dropdown */
+.navbar .dropdown-menu {
+    background-color: #1f77d0;
+    border-radius: var(--border-radius-md);
+    border: none;
+}
+
+.navbar .dropdown-menu a {
+    color: #ffffff !important;
+}
+
+.navbar .dropdown-menu a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+/* Grid Heading Row */
+.grid-heading-row {
+    border-bottom: 1px solid var(--table-border-color);
+    background-color: var(--subtle-fg);
+    color: var(--gray-700);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-semibold);
+    letter-spacing: 0.02em;
+    height: 36px;
+    padding: 0 10px !important;
+    border-top-left-radius: var(--border-radius-md);
+    border-top-right-radius: var(--border-radius-md);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.grid-heading-row:hover {
+    background-color: var(--gray-100);
+    color: var(--gray-900);
+}
+
+/* Number Widget Box Header */
+.widget.number-widget-box .widget-head .widget-title {
+    font-weight: var(--weight-semibold);
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: var(--text-sm);
+    margin-top: var(--margin-xs);
+    letter-spacing: 0.04em;
+    transition: color 0.3s ease;
+}
+
+.widget.number-widget-box:hover .widget-head .widget-title {
+    color: #f0f0f0;
+}
+
+/* General Widget Title */
+.widget .widget-head .widget-label .widget-title {
+    display: flex;
+    align-items: center;
+    font-size: var(--text-base);
+    font-weight: var(--weight-semibold);
+    letter-spacing: 0.015em;
+    font-family: inherit;
+    line-height: 1.3em;
+    color: #ffffff;
+    cursor: default;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.widget .widget-head .widget-label .widget-title:hover {
+    color: #e2e2e2;
+    transform: translateY(-1px);
+}
+
+/* Add subtle shadow to widgets */
+.widget {
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.widget:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+    transform: translateY(-2px);
+}
+
+/* Improved padding for better breathing space */
+.widget .widget-head {
+    padding: 8px 12px;
+}
+
+.widget .widget-body {
+    padding: 12px 16px;
+}
+.widget.links-widget-box .widget-head .widget-label .widget-title {
+    font-size: var(--text-lg);
+    font-weight: var(--weight-semibold);
+    letter-spacing: .015em;
+    color: #ffffff !important;
+}.search-bar svg
+Specificity: (0,1,1)
+ {
+    stroke: #ffffff;
+}.page-head {
+    z-index: 5;
+    position: sticky;
+    top: var(--navbar-height);
+    background: var(--bg-color);
+    margin-bottom: 0px;
+    transition
+Shorthand property combines four of the transition properties into a single property.
+Learn more
+
+Don't show
+: 0.5s top;
+}.list-row-head {
+    cursor: default;
+    background-color: #abdaff;
+    height: 30px;
+    margin: .5rem var(--padding-xs);
+    border-radius: var(--border-radius-md);
+}/* Control Labels and Grid Heading Row */
+.control-label,
+.grid-heading-row {
+    color: #000000; /* White text for better contrast */
+    background-color: #ecf1f7; /* Matching theme background */
+    font-size: var(--text-sm);
+    font-weight: var(--weight-medium); /* Slightly bolder for visibility */
+    letter-spacing: 0.02em;
+    padding: 6px 10px;
+    border-radius: var(--border-radius-sm);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Hover Effect for Grid Heading Row */
+.grid-heading-row:hover {
+    background-color: #1f77d0; /* Slightly darker on hover */
+    color: #ffffff;
+}
+
+/* Control Label Alignment */
+.control-label {
+    display: inline-block;
+    margin-bottom: 4px;
+    text-transform: capitalize;
+}
+
+/* For Required Fields */
+.control-label.required:after {
+    content: " *";
+    color: #ffcc00; /* Highlight required indicator */
 }
