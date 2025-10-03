@@ -206,7 +206,6 @@ table td {
     color: var(--text-color);
     box-shadow: 0px 8px 20px rgba(0,0,0,0.05);
     transition: all 0.35s ease;
-    background-image: url("data:image/svg+xml,%3Csvg fill='%235a5a5a' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M21.71 20.29l-3.4-3.39A9 9 0 1019 17a9 9 0 00-7-16 9 9 0 000 18 9 9 0 006.9-3.29l3.4 3.39a1 1 0 001.41-1.41zM4 10a6 6 0 1110.95 3.54A6 6 0 014 10z'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: 18px center;
     background-size: 20px;
@@ -509,7 +508,7 @@ Specificity: (0,1,1)
  {
     stroke: #ffffff;
 }.page-head {
-    z-index: 5;
+
     position: sticky;
     top: var(--navbar-height);
     background: var(--bg-color);
