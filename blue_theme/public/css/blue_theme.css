@@ -1,622 +1,488 @@
-/* ==================== 🎨 JUSTDO COLOR THEME VARIABLES ==================== */
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap");
+
+/* --- 1. Variables and Global Reset - تحديث الألوان للتباين والراحة --- */
 :root {
-    --primary-color: #248AFD;        /* Dodger Blue */
-    --primary-orange: #F5A623;       /* Orange Accent */
-    --primary-red: #FF4747;          /* Red */
-    --primary-green: #71C02B;        /* Green */
-    --primary-yellow: #FFC100;       /* Yellow */
-    --background-color: #ffffff;     /* White */
-    --secondary-bg: #f8f9fa;         /* Light Gray */
-    --secondary-color: #d1d5db;      /* Light Border Gray */
-    --text-color: #1a1a1a;           /* Dark Text */
-    --muted-text: #5a5a5a;           /* Secondary Text */
-    --border-radius: 10px;
-    --box-shadow: 0px 4px 10px rgba(0,0,0,0.05);
+    /* Colors - Blue Serenity Palette */
+    --color-primary: #17a2b8; /* الأزرق الهادئ/التركوازي */
+    --color-secondary: #0f6674; /* أغمق للتفاعل */
+    --color-accent: #d2e7fa; /* خلفية الشريط الجانبي البارزة */
+    --color-bg-light: #f5fafd; /* خلفية الصفحة الرئيسية (كسر حدة الأبيض) */
+    --color-bg-dark: #ffffff; /* خلفية العناصر البارزة (الودجات) - أبيض نقي */
+    --color-text-main: #2c3e50; /* لون النص الأساسي (أزرق غامق للوضوح) */
+    --color-text-muted: #888888; /* لون النص الثانوي */
+    --color-border: #ccddee; /* لون الحدود الخفيفة (أزرق خفيف) */
+    --color-shadow: rgba(0, 0, 0, 0.12); /* لون الظل القوي */
+
+    /* Dimensions & Style */
+    --border-radius-lg: 14px; /* زوايا أكبر وأكثر نعومة */
+    --border-radius-md: 10px;
     --transition-speed: 0.3s;
+    --navbar-height: 60px; /* شريط علوي أكبر قليلاً */
+    --font-size-base: 1rem;
 }
 
-/* ==================== 🖋 GLOBAL ==================== */
-body {
-    background-color: #c7e2f74a !important;
-    color: var(--text-color);
-    font-family: 'Segoe UI', sans-serif;
-    line-height: 1.6;
+/* Base Font and Background - تطبيق الخلفية الجديدة وخط 600 */
+body, .chart-container, .page-container {
+    font-family: "Cairo", sans-serif !important;
+    color: var(--color-text-main);
+    background-color: var(--color-bg-light) !important;
+    font-weight: 600; /* خط شبه بولد للوضوح */
 }
 
-/* Smooth transitions for all elements */
-* {
-    transition: background-color var(--transition-speed), color var(--transition-speed), border-color var(--transition-speed), box-shadow var(--transition-speed), transform var(--transition-speed);
-}
-
-/* Scrollbar Styling */
-::-webkit-scrollbar {
+/* Scrollbar Styling (Blue and Light) */
+*::-webkit-scrollbar {
     width: 8px;
+    height: 8px;
 }
-::-webkit-scrollbar-thumb {
-    background: var(--primary-color);
+*::-webkit-scrollbar-track {
+    background: var(--color-bg-light);
+}
+*::-webkit-scrollbar-thumb {
+    background-color: var(--color-primary);
+    border-radius: 10px;
+    border: 2px solid var(--color-bg-light);
+}
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-primary) var(--color-bg-light);
+}
+
+/* H1-H6 Headers - بولد قوي للوضوح */
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    color: var(--color-secondary); /* لون أغمق للعناوين */
+    font-weight: 700;
+}
+
+/* --- 2. Navbar & Header --- */
+header.navbar.sticky-top, .navbar {
+    background-color: var(--color-primary) !important;
+    height: var(--navbar-height);
+    box-shadow: 0 px 2px var(--color-shadow);
+    border-bottom-left-radius: var(--border-radius-md);
+    border-bottom-right-radius: var(--border-radius-md);
+}
+.navbar-nav .icon {
+    stroke: var(--color-bg-dark) !important;
+    stroke-width: 2;
+}
+.navbar .navbar-nav .nav-link {
+    color: var(--color-bg-dark) !important;
+    font-weight: 600;
+    transition: color var(--transition-speed) ease-in-out;
+}
+.navbar .navbar-nav .nav-link:hover {
+    color: var(--color-bg-light) !important;
+}
+/* Breadcrumbs */
+#navbar-breadcrumbs li.disabled a, #navbar-breadcrumbs a {
+    color: var(--color-bg-dark) !important;
+    font-weight: 600;
+}
+#navbar-breadcrumbs a::before {
+    border-color: var(--color-bg-dark);
+}
+/* Hide Help dropdown for cleaner interface */
+.dropdown-help {
+    display: none !important;
+}
+
+
+/* --- 3. Sidebar (Desk Sidebar & Main Layout) - تقليل التباعد لزيادة الرؤية --- */
+.layout-side-section {
+    background-color: var(--color-accent) !important;
+    border-right: none;
+    border-radius: var(--border-radius-lg);
+    padding: px 4px !important; /* تقليل الإزاحة الداخلية */
+    box-shadow: 2px 0 8px var(--color-shadow);
+    min-width: 200px; /* عرض أقل قليلاً */
+}
+.desk-sidebar .standard-sidebar-item {
+    background-color: var(--color-bg-dark); 
+    border: .5px solid var(--color-border); 
+    margin-bottom: 3px; /* تقليل الهامش بين العناصر */
+    padding: 2px 4px; /* تقليل الإزاحة الداخلية للعنصر */
+    border-radius: var(--border-radius-md); 
+    transition: all var(--transition-speed);
+    font-weight: 900; 
+    font-size: 0.9rem; /* خط أصغر قليلاً */
+}
+/* Active/Hover State for Sidebar Items */
+.desk-sidebar .standard-sidebar-item:hover, 
+.desk-sidebar .standard-sidebar-item.selected {
+    background-color: var(--color-primary) !important; 
+    color: var(--color-bg-dark) !important; 
+    font-weight: 700;
+    border: 1px solid var(--color-secondary); 
+    box-shadow: 0 2px 5px rgba(0, 86, 179, 0.2);
+    transform: none; /* إزالة الحركة لتوفير المساحة */
+}
+.layout-side-section a {
+    color: var(--color-text-main);
+}
+.layout-side-section .icon, .layout-side-section .sidebar-label .icon {
+    stroke: var(--color-secondary) !important;
+    width: 25px; /* تصغير الأيقونات قليلاً */
+    height: 20px;
+}
+.desk-sidebar .standard-sidebar-item:hover .icon,
+.desk-sidebar .standard-sidebar-item.selected .icon {
+    stroke: var(--color-bg-dark) !important;
+}
+
+/* --- 4. Widgets (Cards) and Workspace - تقليل التباعد --- */
+.widget, .widget.dashboard-widget-box {
+    border-radius: var(--border-radius-lg);
+    background: var(--color-bg-dark) !important; 
+    box-shadow: 0 4px 15px var(--color-shadow); 
+    border: 1px solid var(--color-border);
+    margin-bottom: 15px !important; /* تقليل الهامش السفلي للـ Widgets */
+    padding: 15px; /* تقليل الإزاحة الداخلية */
+}
+.widget:hover {
+    transform: translateY(-2px); 
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* --- Shortcut Widget Specific Enhancements --- */
+.widget.links-widget-box .link-item, .widget.shortcut-widget-box .link-item {
+    color: var(--color-text-main);
+    background-color: var(--color-bg-light); /* خلفية فاتحة مختلفة */
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-md); 
+    margin-bottom: 10px;
+    padding: 10px;
+    transition: all var(--transition-speed);
+    display: flex; 
+    align-items: center;
+}
+.widget.links-widget-box .link-item:hover, .widget.shortcut-widget-box .link-item:hover {
+    background-color: var(--color-accent) !important;
+    color: var(--color-secondary) !important;
+    border-color: var(--color-secondary); 
+}
+
+/* Make Shortcut Icons Square and Blue */
+.widget.links-widget-box .link-item .icon, 
+.widget.shortcut-widget-box .link-item .icon {
+    stroke: var(--color-primary) !important;
+    fill: var(--color-accent); 
+    padding: 6px;
+    border-radius: 6px; 
+    margin-inline-end: 15px; 
+    box-shadow: 0 1px 4px rgba(23, 162, 184, 0.2);
+}
+
+/* --- 5. Forms, Inputs, and Buttons --- */
+/* Form Controls (الحقول) */
+.form-control, .awesomplete input {
+    padding: 10px 15px; /* حجم مريح */
+    font-size: var(--font-size-base);
+    background-color: var(--color-bg-dark) !important;
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-md);
+    transition: all var(--transition-speed);
+    font-weight: 700;
+}
+.form-control:focus, .awesomplete input:focus {
+    border: 2px solid var(--color-primary); 
+    box-shadow: 0 0 0 0.2rem rgba(23, 162, 184, 0.35); 
+    background: var(--color-bg-dark) !important;
+}
+
+/* Form Sections/Tabs */
+.form-section.card-section, .form-dashboard-section {
+    border-bottom: 3px solid var(--color-secondary);
+    border-radius: var(--border-radius-md);
+    padding: var(--padding-xs);
+    margin-top: 15px;
+}
+.form-tabs-list {
+    background-color: var(--color-primary) !important;
+    border-radius: var(--border-radius-md) var(--border-radius-md) 0 0;
+}
+.form-tabs-list .nav-link.active {
+    background-color: var(--color-secondary) !important;
+    color: var(--color-bg-dark) !important;
+    border-radius: var(--border-radius-md) var(--border-radius-md) 0 0;
+    font-weight: 700;
+}
+
+/* Primary Button Styling (الأزرار الأساسية) */
+.btn-primary, .btn-primary.primary-action {
+    color: #fff !important;
+    background-color: var(--color-primary) !important;
+    border-color: var(--color-primary) !important;
+    border-radius: var(--border-radius-md);
+    padding: 10px 22px; 
+    font-size: 1.05rem;
+    box-shadow: 0 4px 8px rgba(23, 162, 184, 0.3);
+    transition: all var(--transition-speed);
+    font-weight: 700;
+}
+.btn-primary:hover, .btn-primary.primary-action:hover {
+    background-color: var(--color-secondary) !important;
+    border-color: var(--color-secondary) !important;
+    transform: translateY(-3px); 
+    box-shadow: 0 8px 20px rgba(23, 162, 184, 0.5); 
+}
+
+/* Secondary Button Styling (الأزرار الثانوية) */
+.btn-secondary {
+    color: var(--color-primary) !important;
+    background-color: transparent !important;
+    border: 2px solid var(--color-primary) !important;
+    border-radius: var(--border-radius-md);
+    padding: 10px 22px;
+    font-size: 1.05rem;
+    transition: all var(--transition-speed);
+    font-weight: 700;
+}
+.btn-secondary:hover {
+    color: var(--color-bg-dark) !important;
+    background-color: var(--color-primary) !important;
+    transform: translateY(-2px);
+}
+
+/* Submit Button Specific Color (زر الإرسال/الحفظ) */
+.btn-primary.primary-action[data-label="Submit"],
+.btn-primary.primary-action[data-label="%D8%AA%D8%B3%D8%AC%D9%8A%D9%84"],
+.btn-primary.primary-action[data-label="%D8%AD%D9%81%D8%B8"] {
+    background-color: #28a745 !important; /* أخضر أكثر وضوحاً */
+    border-color: #28a745 !important;
+    box-shadow: 0 4px 8px rgba(40, 167, 69, 0.4);
+}
+
+/* --- 6. Lists and Data Tables --- */
+/* List Head/Header Row */
+.frappe-list .level.list-row-head {
+    background-color: #92cbff; /* لون أغمق */
+    border-radius: var(--border-radius-md);
+}
+.frappe-list .level.list-row-head .list-header-subject,
+.frappe-list .level.list-row-head .list-count {
+    color: var(--color-bg-dark);
+    font-weight: 700;
+}
+/* List Rows */
+.frappe-list .list-row-container {
+    border-bottom: 1px solid var(--color-border);
+}
+.frappe-list .list-row-container:hover {
+    background-color: var(--color-accent);
+}
+/* Datatable - Cleaner Style */
+.datatable .dt-header .dt-cell--header .dt-cell__content {
+    font-weight: 700;
+    background-color: var(--color-accent);
+    color: var(--color-secondary);
+    border-bottom: 2px solid var(--color-primary);
+    text-align: center;
+}
+.datatable .dt-row .dt-cell .dt-cell__content {
+    border: 1px solid var(--color-border);
+}
+.datatable .dt-row:nth-child(even) {
+    background-color: var(--color-bg-dark);
+}
+.datatable .dt-row:nth-child(odd) {
+    background-color: var(--color-bg-light);
+}
+
+/* --- 7. Images and Misc --- */
+img {
+    border: 1px solid var(--color-accent);
+    border-radius: var(--border-radius-md);
+}
+.text-muted {
+    color: #000000 !important;
+    font-weight: 600 !important;
+}
+/* --- 8. Page Header (رأس الصفحة) - تقليل المساحة وتحسين الخط --- */
+
+/* --- 9. Sidebar (شريط التنقل الجانبي) - ضغط واحترافية عالية --- */
+
+/* 1. تقليل العرض وضبط الخلفية */
+.sidebar {
+    width: 220px !important; /* تقليل العرض من 240px إلى 220px */
+    background: var(--color-bg-light) !important; /* خلفية ناعمة */
+    box-shadow: 2px 0 5px var(--color-shadow-light);
+    transition: width 0.3s ease;
+}
+
+/* 2. تحسين مظهر روابط القائمة وضغط المساحة العمودية */
+.sidebar-item a, 
+.sidebar-item .sidebar-item-label {
+    /* تقليل الإزاحة الداخلية لضغط المساحة */
+    padding: 7px 10px !important; /* تقليل من 10px/12px إلى 7px/10px */
+    margin: 0 !important;
+    
+    /* تحسين الخطوط */
+    font-size: 0.95rem !important; /* حجم خط أصغر وأكثر دقة */
+    font-weight: 500 !important; /* خط سميك معتدل للقراءة */
+    color: var(--text-color) !important; /* لون نص احترافي */
+    line-height: 1.2 !important; /* ضغط ارتفاع السطر */
+    
+    /* لمسة جمالية عند المرور */
+    transition: background-color 0.2s;
+    border-radius: var(--border-radius-sm);
+}
+
+/* 3. ضغط وتنسيق عناوين الأقسام (Module Headings) */
+.sidebar-module-list-item > a {
+    padding-top: 10px !important; 
+    padding-bottom: 5px !important; /* تقليل المساحة تحت العنوان */
+    font-size: 1.1rem !important; /* حجم أكبر قليلاً للعناوين */
+    font-weight: 700 !important; 
+    color: var(--color-secondary) !important; /* تمييز لون العنوان */
+    pointer-events: none; /* جعل العنوان غير قابل للضغط (إذا كان غير وظيفي) */
+}
+
+/* 4. تنسيق العنصر النشط (Active Item) بشكل مميز */
+.sidebar-item.active a {
+    background-color: var(--color-accent) !important; /* خلفية لون التمييز */
+    color: var(--color-on-accent) !important; /* نص أبيض أو فاتح على الخلفية المميزة */
+    font-weight: 600 !important; /* تمييز الخط في الحالة النشطة */
+    border-radius: var(--border-radius-sm);
+}
+.sidebar-item.active a:hover {
+    background-color: var(--color-accent-dark) !important; 
+}
+
+/* 5. ضغط الأيقونات لتقليل المسافات */
+.sidebar-item .sidebar-item-label .menu-icon {
+    margin-right: 5px !important; /* تقليل المسافة بين الأيقونة والنص */
+    font-size: 1.1rem !important;
+}
+
+/* 6. تحسين التمرير (Scrollbar) في الشريط الجانبي */
+.sidebar-item-list-container {
+    padding-right: 0 !important;
+}
+/* إخفاء شريط التمرير الافتراضي في بعض المتصفحات (اختياري) */
+.sidebar-item-list-container::-webkit-scrollbar {
+    width: 6px;
+}
+.sidebar-item-list-container::-webkit-scrollbar-thumb {
+    background-color: var(--color-accent);
     border-radius: 10px;
 }
-::-webkit-scrollbar-track {
-    background: var(--secondary-bg);
-}
-
-/* ==================== 📌 NAVBAR ==================== */
-.navbar {
-    background-color: var(--background-color);
-    border-bottom: 1px solid var(--secondary-color);
-    height: 55px;
-    box-shadow: var(--box-shadow);
+lement.style {
 }
 .navbar-home img {
-    max-height: 50px !important;
-    border-radius: 50%;
-    border: 2px solid var(--secondary-color);
+    max-height: 42px;
+    width: auto;
 }
-#navbar-breadcrumbs a {
-    color: var(--text-color);
-    font-weight: bold;
+.app-logo {
+    width: 24px;
 }
-#navbar-breadcrumbs a:hover {
-    color: var(--primary-color);
+/*
+ * Custom CSS for ERPNext V15 - Styling with Prominent Colored Borders
+ *
+ * الهدف: تحسين مظهر شريط التنقل (Navbar) وتوفير حواف ملونة مميزة
+ * للحقول بناءً على نوع البيانات، مما يسهل التعرف عليها بصريًا.
+ */
+
+:root {
+    --primary-color: #3b82f6; /* Tailwind blue-500 - لون التركيز الرئيسي */
+    --input-border-color: #e5e7eb; /* رمادي فاتح للحدود العادية */
+    --input-focus-color: #60a5fa; /* Tailwind blue-400 - لون التركيز عند النقر */
+    
+    /* ألوان مميزة للحواف الجديدة بناءً على الطلب */
+    --date-field-color: #f59e0b; /* كهرماني/برتقالي لحقول التاريخ */
+    --data-field-color: #4f46e5; /* نيلي لحقول البيانات والنصوص والأرقام */
+    
+    --border-radius-base: 6px;
 }
 
-/* ==================== 📂 SIDEBAR ==================== */
-.desk-sidebar-item {
-    background-color: var(--background-color);
-    border: 1px solid var(--secondary-color);
-    border-radius: var(--border-radius);
-    margin: 5px 0;
-    padding: 6px;
-    box-shadow: var(--box-shadow);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-.standard-sidebar-item {
-    color: var(--text-color);
-    font-weight: 500;
-}
-.standard-sidebar-item:hover {
-    background-color: var(--primary-color);
-    color: white;
-}
-.standard-sidebar-item.selected {
-    background-color: var(--primary-color);
-    color: white;
+/* -------------------------------------- */
+/* 1. Navbar Spacing & Styling (توسيع شريط التنقل) */
+/* -------------------------------------- */
+
+.navbar-main {
+    /* إضافة مساحة علوية وسفلية لجعل شريط التنقل أكثر اتساعاً */
+    padding-top: 12px !important;
+    padding-bottom: 12px !important;
+    /* ظل خفيف لجعله يبدو عائماً */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    background-color: #ffffff;
 }
 
-/* ==================== 🔘 BUTTONS ==================== */
-.btn, .btn-primary {
-    background-color: var(--primary-color) !important;
-    color: white !important;
-    border-radius: var(--border-radius);
-    padding: 8px 15px;
-    box-shadow: var(--box-shadow);
-}
-.btn:hover {
-    background-color: #1b6fd1 !important;
-    transform: translateY(-1px);
+/* -------------------------------------- */
+/* 2. General Input Field Styling (الأنماط العامة) */
+/* -------------------------------------- */
+
+.form-control {
+    /* حواف مستديرة لجميع المدخلات */
+    border-radius: var(--border-radius-base) !important;
+    /* حد خفيف لجميع المدخلات كقاعدة */
+    border: 1px solid var(--input-border-color) !important;
+    /* ارتفاع موحد وأفضل */
+    height: 38px !important;
+    transition: all 0.2s ease-in-out;
 }
 
-/* Accent Button Variants */
-.btn-orange { background-color: var(--primary-orange) !important; color: white !important; }
-.btn-red { background-color: var(--primary-red) !important; color: white !important; }
-.btn-green { background-color: var(--primary-green) !important; color: white !important; }
-.btn-yellow { background-color: var(--primary-yellow) !important; color: white !important; }
-
-/* ==================== 🃏 CARDS ==================== */
-.card {
-    background-color: var(--background-color);
-    border: 1px solid var(--secondary-color);
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    padding: 15px;
-}
-.card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0px 6px 15px rgba(0,0,0,0.1);
+/* تأثير التركيز (Focus State) لجميع الحقول */
+.form-control:focus,
+.form-control:active {
+    border-color: var(--input-focus-color) !important;
+    box-shadow: 0 0 0 2px rgba(96, 165, 250, 0.3) !important;
+    background-color: #fff !important;
 }
 
-/* ==================== 📝 HEADINGS ==================== */
-h1, h2, h3 {
-    color: var(--primary-color);
-    font-weight: bold;
+/* -------------------------------------- */
+/* 3. Type-Specific Field Styling (الحواف الملونة المميزة) */
+/* -------------------------------------- */
+
+/* === DATE / DATETIME FIELDS (برتقالي) === */
+.frappe-control[data-fieldtype="Date"] .form-control,
+.frappe-control[data-fieldtype="Datetime"] .form-control {
+    /* حافة يسار سميكة ومميزة بلون كهرماني */
+    border-left: 4px solid var(--date-field-color) !important;
+    /* خلفية كريمية خفيفة لزيادة التمييز */
+    background-color: #fefcf3;
 }
 
-/* ==================== 📑 FORMS ==================== */
-input, select, textarea {
-    border: 1px solid var(--secondary-color) !important;
-    border-radius: var(--border-radius);
-    padding: 8px;
-    background-color: var(--background-color) !important;
-}
-input:focus, select:focus, textarea:focus {
-    border-color: var(--primary-color) !important;
-    box-shadow: 0 0 6px rgba(36,138,253,0.3);
-    outline: none;
+.frappe-control[data-fieldtype="Date"] .form-control:focus,
+.frappe-control[data-fieldtype="Datetime"] .form-control:focus {
+    /* التأكد من بقاء الحافة البرتقالية عند التركيز */
+    border-left-color: var(--date-field-color) !important;
 }
 
-/* ==================== 📋 LIST ROWS ==================== */
-.list-row {
-    background-color: var(--background-color);
-    border-bottom: 1px solid var(--secondary-color);
-    padding: 10px 14px;
-}
-.list-row:nth-child(even) {
-    background-color: var(--secondary-bg);
-}
-.list-row:hover {
-    background-color: var(--primary-color);
-    color: white;
-    transform: translateX(3px);
+/* === DATA / TEXT / NUMBER / CURRENCY FIELDS (نيلي) === */
+.frappe-control[data-fieldtype="Data"] .form-control,
+.frappe-control[data-fieldtype="Small Text"] .form-control,
+.frappe-control[data-fieldtype="Int"] .form-control,
+.frappe-control[data-fieldtype="Float"] .form-control,
+.frappe-control[data-fieldtype="Currency"] .form-control {
+    /* حافة يسار سميكة ومميزة بلون نيلي */
+    border-left: 4px solid var(--data-field-color) !important;
+    background-color: #ffffff;
 }
 
-/* ==================== 🏷 WIDGETS ==================== */
-.widget {
-    background-color: var(--background-color) !important;
-    border: 1px solid var(--secondary-color);
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-}
-.widget .widget-head {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 10px;
-    border-radius: var(--border-radius) var(--border-radius) 0 0;
+.frappe-control[data-fieldtype="Data"] .form-control:focus,
+.frappe-control[data-fieldtype="Small Text"] .form-control:focus,
+.frappe-control[data-fieldtype="Int"] .form-control:focus,
+.frappe-control[data-fieldtype="Float"] .form-control:focus,
+.frappe-control[data-fieldtype="Currency"] .form-control:focus {
+    /* التأكد من بقاء الحافة النيلية عند التركيز */
+    border-left-color: var(--data-field-color) !important;
 }
 
-/* ==================== 📊 STATUS COLORS ==================== */
-.status-success { color: var(--primary-green); }
-.status-danger { color: var(--primary-red); }
-.status-warning { color: var(--primary-yellow); }
-.status-info { color: var(--primary-color); }
-
-/* ==================== 💡 EXTRA EYE-FRIENDLY TOUCHES ==================== */
-/* Glassmorphism style for modals */
-.modal-content {
-    background: rgba(255, 255, 255, 0.9) !important;
-    backdrop-filter: blur(10px);
-    border-radius: var(--border-radius);
-}
-
-/* Table styling */
-table {
-    border-collapse: collapse;
-    width: 100%;
-}
-table th {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 10px;
-}
-table td {
-    padding: 8px;
-    border: 1px solid var(--secondary-color);
-}
-/* ==================== 🔍 PREMIUM BIG SEARCH BAR ==================== */
-.search-bar .awesomplete input {
-    width: 100%;
-    padding: 16px 20px 16px 50px; /* Bigger padding, space for icon */
-    border: 2px solid var(--secondary-color);
-    border-radius: 40px;
-    background: rgba(255, 255, 255, 0.95); /* Glass effect */
-    backdrop-filter: blur(10px);
-    font-size: 16px;
-    font-weight: 500;
-    color: var(--text-color);
-    box-shadow: 0px 8px 20px rgba(0,0,0,0.05);
-    transition: all 0.35s ease;
-    background-repeat: no-repeat;
-    background-position: 18px center;
-    background-size: 20px;
-}
-
-.search-bar .awesomplete input:hover {
-    border-color: var(--primary-color);
-    box-shadow: 0px 10px 25px rgba(36,138,253,0.15);
-}
-
-.search-bar .awesomplete input:focus {
-    border-color: var(--primary-color);
-    box-shadow: 0px 12px 30px rgba(36,138,253,0.25);
-    outline: none;
-    transform: scale(1.02);
-}
-
-.search-bar .awesomplete input::placeholder {
-    color: var(--muted-text);
-    opacity: 0.8;
-    font-size: 15px;
-}
-
-.awesomplete ul {
-    background: var(--background-color);
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    margin-top: 8px;
-    padding: 6px 0;
-    max-height: 250px;
-    overflow-y: auto;
-}
-.awesomplete li {
-    padding: 10px 15px;
-    cursor: pointer;
-    transition: background var(--transition-speed);
-}
-.awesomplete li:hover {
-    background: var(--primary-color);
-    color: white;
-}
-/* ==================== 🎨 BUTTON DESIGN SYSTEM ==================== */
-.btn {
-    display: inline-block;
-    padding: 10px 18px;
-    font-size: 14px;
-    font-weight: 600;
-    border-radius: var(--border-radius);
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: var(--box-shadow);
-}
-
-/* Primary Button */
-.btn-primary {
-    background-color: var(--primary-color);
-    color: #fff;
-}
-.btn-primary:hover {
-    background-color: #1b6fd1;
-    transform: translateY(-2px);
-    box-shadow: 0px 8px 20px rgba(36,138,253,0.3);
-}
-
-/* Success Button */
-.btn-success {
-    background-color: var(--primary-green);
-    color: #fff;
-}
-.btn-success:hover {
-    background-color: #5aa122;
-    transform: translateY(-2px);
-    box-shadow: 0px 8px 20px rgba(113,192,43,0.3);
-}
-
-/* Danger Button */
-.btn-danger {
-    background-color: var(--primary-red);
-    color: #fff;
-}
-.btn-danger:hover {
-    background-color: #d13b3b;
-    transform: translateY(-2px);
-    box-shadow: 0px 8px 20px rgba(255,71,71,0.3);
-}
-
-/* Warning Button */
-.btn-warning {
-    background-color: var(--primary-yellow);
-    color: #000;
-}
-.btn-warning:hover {
-    background-color: #e6ae00;
-    transform: translateY(-2px);
-    box-shadow: 0px 8px 20px rgba(255,193,0,0.3);
-}
-
-/* Orange Accent */
-.btn-orange {
-    background-color: var(--primary-orange);
-    color: #fff;
-}
-.btn-orange:hover {
-    background-color: #d68b1e;
-    transform: translateY(-2px);
-    box-shadow: 0px 8px 20px rgba(245,166,35,0.3);
-}
-
-/* Outline Buttons */
-.btn-outline {
-    background: transparent;
-    border: 2px solid currentColor;
-    color: var(--text-color);
-}
-.btn-outline:hover {
-    background-color: currentColor;
-    color: #fff;
-    transform: translateY(-2px);
-}
-
-/* Pill Buttons */
-.btn-pill {
-    border-radius: 50px;
-}
-
-/* Gradient Buttons */
-.btn-gradient {
-    background: linear-gradient(135deg, var(--primary-color), #4aa8ff);
-    color: #fff;
-}
-.btn-gradient:hover {
-    background: linear-gradient(135deg, #1b6fd1, var(--primary-color));
-    transform: translateY(-2px);
-    box-shadow: 0px 8px 20px rgba(36,138,253,0.3);
-}
-/* Sidebar Styling */
-.layout-side-section {
-    background-color: #248afd;
-    color: #ffffff;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.layout-side-section .sidebar-item,
-.layout-side-section .module-sidebar-item {
-    color: #ffffff;
-    font-weight: var(--weight-medium);
-    border-radius: var(--border-radius-md);
-    padding: 10px 14px;
-    margin: 4px 8px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.layout-side-section .sidebar-item:hover,
-.layout-side-section .module-sidebar-item:hover {
-    background-color: rgba(255, 255, 255, 0.15);
-    color: #e2e2e2;
-}
-
-/* Active Item */
-.layout-side-section .sidebar-item.active,
-.layout-side-section .module-sidebar-item.active {
-    background-color: #1f77d0;
-    color: #ffffff;
-    font-weight: var(--weight-semibold);
-}
-
-/* Sidebar Icons */
-.layout-side-section .sidebar-item .icon,
-.layout-side-section .module-sidebar-item .icon {
-    color: #ffffff;
-    margin-right: 8px;
-    opacity: 0.85;
-    transition: opacity 0.3s ease;
-}
-
-.layout-side-section .sidebar-item:hover .icon,
-.layout-side-section .module-sidebar-item:hover .icon {
-    opacity: 1;
-}
-
-/* Navbar Styling */
-.navbar,
-.navbar-default {
-    background-color: #248afd;
-    border-bottom: 1px solid #1f77d0;
-    color: #ffffff;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.navbar .navbar-brand,
-.navbar .nav-link,
-.navbar .navbar-nav > li > a {
-    color: #ffffff !important;
-    font-weight: var(--weight-medium);
-    transition: color 0.3s ease;
-}
-
-.navbar .navbar-brand:hover,
-.navbar .nav-link:hover,
-.navbar .navbar-nav > li > a:hover {
-    color: #e2e2e2 !important;
-}
-
-/* Navbar Dropdown */
-.navbar .dropdown-menu {
-    background-color: #1f77d0;
-    border-radius: var(--border-radius-md);
-    border: none;
-}
-
-.navbar .dropdown-menu a {
-    color: #ffffff !important;
-}
-
-.navbar .dropdown-menu a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-}
-/* Grid Heading Row */
-.grid-heading-row {
-    border-bottom: 1px solid var(--table-border-color);
-    background-color: var(--subtle-fg);
-    color: var(--gray-700);
-    font-size: var(--text-sm);
-    font-weight: var(--weight-semibold);
-    letter-spacing: 0.02em;
-    height: 36px;
-    padding: 0 10px !important;
-    border-top-left-radius: var(--border-radius-md);
-    border-top-right-radius: var(--border-radius-md);
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.grid-heading-row:hover {
-    background-color: var(--gray-100);
-    color: var(--gray-900);
-}
-
-/* Number Widget Box Header */
-.widget.number-widget-box .widget-head .widget-title {
-    font-weight: var(--weight-semibold);
-    color: #ffffff;
-    text-transform: uppercase;
-    font-size: var(--text-sm);
-    margin-top: var(--margin-xs);
-    letter-spacing: 0.04em;
-    transition: color 0.3s ease;
-}
-
-.widget.number-widget-box:hover .widget-head .widget-title {
-    color: #f0f0f0;
-}
-
-/* General Widget Title */
-.widget .widget-head .widget-label .widget-title {
-    display: flex;
-    align-items: center;
-    font-size: var(--text-base);
-    font-weight: var(--weight-semibold);
-    letter-spacing: 0.015em;
-    font-family: inherit;
-    line-height: 1.3em;
-    color: #ffffff;
-    cursor: default;
-    transition: color 0.3s ease, transform 0.2s ease;
-}
-
-.widget .widget-head .widget-label .widget-title:hover {
-    color: #e2e2e2;
-    transform: translateY(-1px);
-}
-
-/* Add subtle shadow to widgets */
-.widget {
-    border-radius: var(--border-radius-lg);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
-    transition: box-shadow 0.3s ease, transform 0.2s ease;
-}
-
-.widget:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
-    transform: translateY(-2px);
-}
-
-/* Improved padding for better breathing space */
-.widget .widget-head {
+/* === TEXTAREA (للتأكد من أنها لا تحصل على حافة ملونة إذا لم تكن من نوع البيانات) === */
+textarea.form-control {
+    min-height: 80px;
+    height: auto !important;
     padding: 8px 12px;
+    border-left: 1px solid var(--input-border-color) !important; /* حافة عادية للمناطق الكبيرة */
+    background-color: #ffffff;
 }
 
-.widget .widget-body {
-    padding: 12px 16px;
-}
-.widget.links-widget-box .widget-head .widget-label .widget-title {
-    font-size: var(--text-lg);
-    font-weight: var(--weight-semibold);
-    letter-spacing: .015em;
-    color: #ffffff !important;
-}.search-bar svg
-Specificity: (0,1,1)
- {
-    stroke: #ffffff;
-}.page-head {
-
-    position: sticky;
-    top: var(--navbar-height);
-    background: var(--bg-color);
-    margin-bottom: 0px;
-    transition
-Shorthand property combines four of the transition properties into a single property.
-Learn more
-
-Don't show
-: 0.5s top;
-}.list-row-head {
-    cursor: default;
-    background-color: #abdaff;
-    height: 30px;
-    margin: .5rem var(--padding-xs);
-    border-radius: var(--border-radius-md);
-}/* Control Labels and Grid Heading Row */
-.control-label,
-.grid-heading-row {
-    color: #000000; /* White text for better contrast */
-    background-color: #c5d8ee; /* Matching theme background */
-    font-size: var(--text-sm);
-    font-weight: var(--weight-medium); /* Slightly bolder for visibility */
-    letter-spacing: 0.02em;
-    padding: 6px 10px;
-    border-radius: var(--border-radius-sm);
-    transition: background-color 0.3s ease, color 0.3s ease;
+/* === OTHER FIELDS (Select, Link, Check) === */
+/* للتأكد من أن جميع الحقول الأخرى تعود إلى الحد العادي 1px */
+.frappe-control[data-fieldtype]:not([data-fieldtype="Date"]):not([data-fieldtype="Datetime"]):not([data-fieldtype="Data"]):not([data-fieldtype="Small Text"]):not([data-fieldtype="Int"]):not([data-fieldtype="Float"]):not([data-fieldtype="Currency"]) .form-control {
+    border-left: 1px solid var(--input-border-color) !important;
+    background-color: #ffffff;
 }
 
-/* Hover Effect for Grid Heading Row */
-.grid-heading-row:hover {
-    background-color: #1f77d0; /* Slightly darker on hover */
-    color: #ffffff;
-}
 
-/* Control Label Alignment */
-.control-label {
-    display: inline-block;
-    margin-bottom: 4px;
-    text-transform: capitalize;
-}
-
-/* For Required Fields */
-.control-label.required:after {
-    content: " *";
-    color: #ffcc00; /* Highlight required indicator */
-}
-/* Links Widget Items */
-.widget.links-widget-box .link-item {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    font-size: var(--text-base);
-    font-weight: var(--weight-medium);
-    letter-spacing: 0.02em;
-    color: #248afd; /* النص باللون الرئيسي */
-    background-color: #e6f2ff; /* اللون الفاتح الجديد */
-    padding: 6px 10px;
-    margin: 4px 0;
-    border-radius: var(--border-radius-md);
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.widget.links-widget-box .link-item:hover {
-    background-color: #cce5ff; /* أغمق قليلًا للهُوفر */
-    color: #1865b8; /* درجة أدكن من الأساسي */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
-}
-
-/* Active Link Item */
-.widget.links-widget-box .link-item.active {
-    background-color: #248afd; /* اللون الأساسي */
-    color: #ffffff;
-    font-weight: var(--weight-semibold);
-}
-
-/* Editor Links */
-.ce-block a {
-    cursor: pointer;
-    text-decoration: underline;
-    color: #248afd;
-    transition: color 0.3s ease;
-}
-
-.ce-block a:hover {
-    color: #1f77d0;
-}
-
-/* Control Labels and Grid Heading Row */
-.control-label,
-.grid-heading-row {
-    color: #000000; /* النص أسود لتباين جيد */
-    background-color: #c5d8ee; /* اللون الفاتح */
-    font-size: var(--text-sm);
-    font-weight: var(--weight-medium);
-    letter-spacing: 0.02em;
-    padding: 6px 10px; /* نفس مسافة الحقل تقريبًا */
-    border-radius: var(--border-radius-sm);
-    display: block; /* يغطي عرض الحقل بالكامل */
-    width: 100%; /* ليكون بنفس عرض الحقل */
-    transition: background-color 0.3s ease, color 0.3s ease;
-    line-height: 1.4;
-    box-sizing: border-box; /* لضبط الحواف مع الحقل */
-}
-
-/* Hover Effect for Grid Heading Row */
-.grid-heading-row:hover {
-    background-color: #1f77d0;
-    color: #ffffff;
-}
