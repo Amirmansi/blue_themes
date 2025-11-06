@@ -26,7 +26,7 @@
 body, .chart-container, .page-container {
     font-family: "Cairo", sans-serif !important;
     color: var(--color-text-main);
-    background-color: var(--color-bg-light) !important;
+    background-color: #a7cee5 !important;
     font-weight: 600; /* خط شبه بولد للوضوح */
 }
 
@@ -485,4 +485,44 @@ textarea.form-control {
     background-color: #ffffff;
 }
 
+/* ==================== 🏷 WIDGETS ==================== */
+/* Using simple defaults: A clean white background and a modest blue accent */
+:root {
+    --clean-background: #fffbfb;
+    --clean-primary: #17a2b8; /* A calm, professional cyan/teal */
+    --clean-border: #e9ecef; /* Very light gray border */
+    --clean-text: #495057;
+    --clean-radius: 6px;
+    --clean-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Very light, subtle shadow */
+}
 
+.widget {
+    background-color: var(--clean-background) !important;
+    color: var(--clean-text);
+    border: 1px solid var(--clean-border);
+    border-radius: var(--clean-radius);
+    box-shadow: var(--clean-shadow);
+    margin: 10px; /* Small amount of spacing */
+    transition: all 0.2s ease-in-out; /* Smooth transitions */
+}
+
+/* Optional: Subtle border change on hover for interactivity */
+.widget:hover {
+    border-color: var(--clean-primary);
+}
+
+.widget .widget-head {
+    /* Use the primary color for clear separation */
+    background-color: var(--clean-primary);
+    color: white; /* Always white text on the primary color */
+    font-size: 1.1em;
+    font-weight: 500;
+    padding: 8px 15px; /* Less padding than before */
+    /* Only round the top corners */
+    border-radius: var(--clean-radius) var(--clean-radius) 0 0;
+}
+
+/* Add a basic style for content padding */
+.widget-content {
+    padding: 15px;
+}
