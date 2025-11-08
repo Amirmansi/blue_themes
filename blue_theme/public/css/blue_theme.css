@@ -583,10 +583,105 @@ textarea.form-control {
     border-left: 5px solid var(--data-field-color) !important; /* زيادة سمك الحافة لـ 5px */
 }
 
-/* --- زر Save/Submit (تأكيد القوة) --- */
-.btn-primary.primary-action[data-label="Submit"],
-.btn-primary.primary-action[data-label="%D8%AA%D8%B3%D8%AC%D9%8A%D9%84"],
-.btn-primary.primary-action[data-label="%D8%AD%D9%81%D8%B8"] {
-    /* ... (Existing Green Color) ... */
-    box-shadow: 0 6px 12px rgba(40, 167, 69, 0.5); /* زيادة قوة الظل الأخضر */
+/* --- 2. Navbar & Header (Compressed & Stylish) --- */
+header.navbar.sticky-top, .navbar {
+    /* ضغط الارتفاع لجعله أقل */
+    height: 50px !important; 
+    min-height: 50px !important;
+    
+    background-color: var(--color-primary) !important; 
+    
+    /* ظل ناعم لخلق عمق بصري */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+    
+    /* إزالة الزوايا السفلية ليتصل بشكل مباشر بالصفحة */
+    border-radius: 0 !important; 
+    
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+}
+
+/* الأيقونات في الـ Navbar */
+.navbar-nav .icon {
+    stroke: var(--color-bg-dark) !important;
+    width: 20px;
+    height: 20px;
+    stroke-width: 2;
+}
+.navbar .navbar-nav .nav-link {
+    color: var(--color-bg-dark) !important;
+    font-weight: 600;
+    transition: color 0.3s ease-in-out;
+}
+
+/* المسارات (Breadcrumbs) */
+#navbar-breadcrumbs li.disabled a, #navbar-breadcrumbs a {
+    color: var(--color-bg-dark) !important;
+    font-weight: 600;
+}
+#navbar-breadcrumbs a::before {
+    border-color: var(--color-bg-dark);
+}
+
+/* شريط البحث (Search Bar) - شكل دائري وأنيق */
+.navbar-form .form-control {
+    height: 30px !important; /* ضغط ارتفاع شريط البحث */
+    border-radius: 15px; /* شكل حبة دواء أو دائري */
+    background-color: rgba(255, 255, 255, 0.9); /* خلفية شبه شفافة */
+    border: none;
+    color: var(--color-text-main);
+}
+.navbar-form .btn-search {
+    color: var(--color-secondary) !important;
+}
+
+/* إخفاء قائمة المساعدة لتبسيط الواجهة */
+.dropdown-help {
+    display: none !important;
+}
+
+---
+
+## 📄 رأس الصفحة (Page Header) - التبسيط والتمييز
+
+هذا الجزء مخصص لمنطقة **عنوان الصفحة** والأزرار الرئيسية التي تظهر أسفل الـ Navbar.
+
+```css
+/* --- Page Header (رأس الصفحة) - مبسط ومميز --- */
+.page-head {
+    /* تقليل الإزاحة الداخلية (Padding) الرأسية لضغط المساحة */
+    padding-top: 10px !important; 
+    padding-bottom: 10px !important;
+    
+    background-color: var(--color-bg-dark) !important; 
+    
+    /* إضافة حافة سفلية رفيعة بلون الثيم الثانوي */
+    border-bottom: 3px solid var(--color-secondary) !important; 
+    
+    /* ظل خفيف جداً */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08); 
+    margin-bottom: 10px;
+}
+
+/* تحسين شكل عنوان الصفحة (DocType Title) */
+.page-head .title-text {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: #171717 !important;
+    line-height: 1.2;
+}
+
+/* تحسين الأزرار في رأس الصفحة */
+.page-actions .btn-group .btn {
+    padding: 6px 15px;
+    font-size: 0.9rem;
+}
+.page-head {
+    z-index: 6;
+    position: sticky;
+    top: var(--navbar-height);
+    background: #a7cee5;
+    margin-bottom: 10px;
+    transition: 0.5s top;
 }
