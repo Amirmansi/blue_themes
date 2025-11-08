@@ -526,3 +526,67 @@ textarea.form-control {
 .widget-content {
     padding: 15px;
 }
+/* --- New: General Icon Style Enhancement --- */
+.icon {
+    /* تطبيق لون الثيم الثانوي (الأزرق الداكن) على الأيقونات بشكل عام */
+    stroke: var(--color-secondary) !important; 
+    stroke-width: 2.2; /* زيادة سمك الخط قليلاً للوضوح */
+    transition: all var(--transition-speed);
+}
+/* أيقونات الأزرار تظل بيضاء لتباينها مع اللون الأساسي */
+.btn-primary .icon {
+    stroke: var(--color-bg-dark) !important;
+}
+
+/* تحسين أيقونات شريط التنقل العلوي */
+.navbar-nav .icon {
+    stroke: var(--color-bg-dark) !important;
+    width: 22px; 
+    height: 22px;
+}
+/* --- Widgets & Cards (إضافة لمسة عائمة بسيطة) --- */
+.widget, .widget.dashboard-widget-box {
+    /* الظل الأقوى الذي كان موجودًا */
+    box-shadow: 0 5px 15px var(--color-shadow); 
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-lg);
+}
+.widget:hover {
+    /* ظل أعمق قليلاً عند المرور للتمييز */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); 
+    transform: translateY(-3px); /* تأثير رفع لطيف */
+}
+
+/* --- Input Field Border (تنعيم حواف الحقول) --- */
+.form-control {
+    /* ... (Existing styles) ... */
+    border: 1px solid #dcdcdc !important; /* لون رمادي فاتح جديد لحواف الحقول العادية */
+}
+.form-control:focus, .awesomplete input:focus {
+    /* إزالة الظل الذي كان يغطي الحافة اليسرى الملونة */
+    box-shadow: none !important; 
+    /* إضافة حافة كاملة بلون التركيز دون التأثير على الحافة اليسرى الملونة */
+    outline: 2px solid var(--input-focus-color); 
+    outline-offset: -2px; /* لتجنب زيادة حجم الحقل */
+}
+
+/* === تحسين الحواف الملونة للحقول (تأكيد العمق) === */
+.frappe-control[data-fieldtype="Date"] .form-control,
+.frappe-control[data-fieldtype="Datetime"] .form-control {
+    border-left: 5px solid var(--date-field-color) !important; /* زيادة سمك الحافة لـ 5px */
+}
+.frappe-control[data-fieldtype="Data"] .form-control,
+.frappe-control[data-fieldtype="Small Text"] .form-control,
+.frappe-control[data-fieldtype="Int"] .form-control,
+.frappe-control[data-fieldtype="Float"] .form-control,
+.frappe-control[data-fieldtype="Currency"] .form-control {
+    border-left: 5px solid var(--data-field-color) !important; /* زيادة سمك الحافة لـ 5px */
+}
+
+/* --- زر Save/Submit (تأكيد القوة) --- */
+.btn-primary.primary-action[data-label="Submit"],
+.btn-primary.primary-action[data-label="%D8%AA%D8%B3%D8%AC%D9%8A%D9%84"],
+.btn-primary.primary-action[data-label="%D8%AD%D9%81%D8%B8"] {
+    /* ... (Existing Green Color) ... */
+    box-shadow: 0 6px 12px rgba(40, 167, 69, 0.5); /* زيادة قوة الظل الأخضر */
+}
